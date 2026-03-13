@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DehazeAI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gradient-to-br from-slate-100 to-slate-200 font-sans">
+
+<!-- Navbar -->
+<header class="bg-slate-900 text-white px-10 py-4 flex justify-between items-center shadow-lg">
+  <h1 class="text-xl font-bold tracking-wide">DehazeAI</h1>
+  <span class="text-green-400 font-semibold">● System Online</span>
+</header>
+
+<!-- Main -->
+<main class="max-w-7xl mx-auto mt-14 grid md:grid-cols-2 gap-10 px-6">
+
+<!-- Upload Card -->
+<section class="bg-white/70 backdrop-blur-xl p-10 rounded-2xl shadow-2xl">
+  <h2 class="text-3xl font-semibold mb-3">Image Dehazing</h2>
+  <p class="text-gray-600 mb-6">
+    AI-based haze removal using Deep Learning
+  </p>
+
+  <input
+    type="file"
+    id="imageInput"
+    accept="image/*"
+    class="block w-full p-4 border rounded-xl bg-white shadow-inner mb-6"
+  />
+
+  <button
+    onclick="dehazeImage()"
+    class="w-full bg-gradient-to-r from-teal-500 to-cyan-600 text-white text-lg py-3 rounded-xl hover:scale-105 transition-all shadow-lg">
+    Dehaze Image
+  </button>
+
+  <p id="statusText" class="mt-4 text-center text-gray-500 hidden">
+    Processing image...
+  </p>
+</section>
+
+<!-- Result Card -->
+<section class="bg-white/70 backdrop-blur-xl p-10 rounded-2xl shadow-2xl">
+  <div class="grid grid-cols-2 gap-6 text-center">
+
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Original Image</h3>
+      <img id="originalImg"
+           class="w-full h-64 bg-gray-100 rounded-xl object-contain shadow-inner" />
+    </div>
+
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Dehazed Output</h3>
+      <img id="resultImg"
+           class="w-full h-64 bg-gray-100 rounded-xl object-contain shadow-inner" />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="text-center text-gray-500 mt-14 mb-6">
+© 2025 DehazeAI | Final Year Major Project
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
